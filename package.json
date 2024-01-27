@@ -1,0 +1,32 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is namaste-react by Shubham ALAVNI",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubham-alavni/namaste-react.git"
+  },
+  "author": "Shubham ALAVNI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubham-alavni/namaste-react/issues"
+  },
+  "homepage": "https://github.com/shubham-alavni/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.3"
+  },
+  "browserList": [
+    "last 2 versions"
+  ]
+}
