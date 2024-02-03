@@ -1,4 +1,4 @@
-import { RESTAURANT_URL } from "../utils/constants";
+import { RESTAURANT_IMAGE_URL } from "../utils/constants";
 
 const styleCard = {
   backgroundColor: "#f0f0f0",
@@ -13,7 +13,7 @@ const RestaurantCard = (props) => {
     <div className="restaurant-card" style={styleCard}>
       <img
         className="restaurant-logo"
-        src={RESTAURANT_URL + cloudinaryImageId}
+        src={RESTAURANT_IMAGE_URL + cloudinaryImageId}
       />
       <h3>{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
