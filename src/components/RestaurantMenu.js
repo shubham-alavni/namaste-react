@@ -11,29 +11,38 @@ const RestaurantMenu = () => {
     return <Shimmer />;
   }
 
-  const { name, cuisines, costForTwoMessage } =
-    restaurantInfo?.cards[0]?.card?.card?.info;
+  let { name, cuisines, costForTwoMessage } =
+    restaurantInfo?.cards?.find((card) => card?.card?.card?.info)?.card?.card
+      ?.info || {};
 
   console.log(name, cuisines, costForTwoMessage);
 
-  const { itemCards } =
-    restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-      ?.card;
+  let itemCards =
+    restaurantInfo?.cards
+      ?.find((card) => card?.groupedCard)
+      ?.groupedCard?.cardGroupMap?.REGULAR?.cards?.find(
+        (card) => card?.card?.card?.itemCards
+      )?.card?.card?.itemCards ?? [];
 
   return (
-    <div className="res-menu">
-      <h1>{name}</h1>
-      <p>
+    <div className="flex flex-col items-center bg-gray-100 p-6">
+      <h1 className="text-4xl font-bold mb-2">{name}</h1>
+      <p className="text-lg text-gray-600 mb-4">
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
-      <h2>Menu</h2>
-      <ul>
+      <h2 className="text-2xl font-semibold mb-2">Menu</h2>
+      <ul className="list-none">
         {itemCards.map((item) => {
           const { id, name, price, defaultPrice } = item.card.info;
           return (
-            <li key={id}>
-              {name} - {"Rs. "}
-              {price / 100 || defaultPrice / 100}
+            <li
+              key={id}
+              className="flex justify-between items-center border-b border-gray-200 py-2"
+            >
+              <span className="text-lg font-medium flex-1 mr-4">{name}</span>
+              <span className="text-lg font-medium">
+                Rs. {price / 100 || defaultPrice / 100}
+              </span>
             </li>
           );
         })}
