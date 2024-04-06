@@ -28,18 +28,20 @@ const Header = () => {
             <Link to="/grocery">Grocery</Link>
           </li>
           <li className="px-4">Cart</li>
-          <button
-            className="login-btn"
-            onClick={() => {
-              if (loginBtn === "Login") {
-                setLoginBtn("Logout");
-              } else {
-                setLoginBtn("Login");
-              }
-            }}
-          >
-            {loginBtn}
-          </button>
+          <li className="px-4">
+            <button
+              className="login-btn"
+              onClick={() => {
+                if (loginBtn === "Login") {
+                  setLoginBtn("Logout");
+                } else {
+                  setLoginBtn("Login");
+                }
+              }}
+            >
+              {loginBtn}
+            </button>
+          </li>
         </ul>
       </div>
     </div>

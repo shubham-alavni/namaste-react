@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withExpressDelivery } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST_API } from "../utils/constants";
@@ -37,7 +37,7 @@ const Body = () => {
       </h1>
     );
   }
-
+  console.log(restaurantList);
   return restaurantList && restaurantList.length === 0 ? (
     <Shimmer />
   ) : (
@@ -89,10 +89,13 @@ const Body = () => {
               to={"/restaurants/" + restaurant.info.id}
               key={restaurant.info.id}
             >
-              <RestaurantCard
-                restaurantData={restaurant}
-                key={restaurant.info.id}
-              />
+              {restaurant.info.sla.deliveryTime <= 30 ? (
+                withExpressDelivery(RestaurantCard)({
+                  restaurantData: restaurant,
+                })
+              ) : (
+                <RestaurantCard restaurantData={restaurant} />
+              )}
             </Link>
           );
         })}

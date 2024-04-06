@@ -20,4 +20,19 @@ const RestaurantCard = (props) => {
   );
 };
 
+// Add higher order component here
+// add label to RestaurantCard of Express Delivery if sla.deliveryTime < 30
+export const withExpressDelivery = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div className="relative">
+        <RestaurantCard {...props} />
+        <span className="absolute top-0 left-0 transform translate-x-2 translate-y-2 bg-red-500 text-white px-2 py-1 text-xs font-bold uppercase rounded-tr">
+          Express Delivery
+        </span>
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;
