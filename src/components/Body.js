@@ -10,6 +10,8 @@ const Body = () => {
   const [filteredRestaurantList, setFilteredRestaurantList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+  const RestaurantCardWithExpressDelivery = withExpressDelivery(RestaurantCard);
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch(RESTAURANT_LIST_API);
@@ -90,9 +92,9 @@ const Body = () => {
               key={restaurant.info.id}
             >
               {restaurant.info.sla.deliveryTime <= 30 ? (
-                withExpressDelivery(RestaurantCard)({
-                  restaurantData: restaurant,
-                })
+                <RestaurantCardWithExpressDelivery
+                  restaurantData={restaurant}
+                />
               ) : (
                 <RestaurantCard restaurantData={restaurant} />
               )}
