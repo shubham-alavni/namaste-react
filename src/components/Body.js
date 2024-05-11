@@ -39,7 +39,6 @@ const Body = () => {
       </h1>
     );
   }
-  console.log(restaurantList);
   return restaurantList && restaurantList.length === 0 ? (
     <Shimmer />
   ) : (
