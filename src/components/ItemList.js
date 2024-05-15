@@ -19,12 +19,15 @@ const ItemList = ({ items }) => {
               }`}
             </p>
           </div>
-          <div className="col-span-3">
+          <div className="col-span-3 relative">
             <img
               src={RESTAURANT_IMAGE_URL + item?.card?.info?.imageId || ""}
               alt={item?.card?.info?.name}
               className="w-full h-24 object-cover rounded-lg"
             />
+            <button className="absolute bottom-0 right-0 bg-black text-white rounded-full p-2">
+              Add +
+            </button>
           </div>
         </div>
       ))}

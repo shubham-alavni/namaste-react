@@ -20,6 +20,7 @@ const RestaurantCategory = ({ category }) => {
           </span>
           <span>{openItem === category.title ? "⬆️" : "⬇️"}</span>
         </div>
+        {console.log("openItem", openItem)}
         {openItem && <ItemList items={category?.itemCards} />}
       </div>
     </div>
