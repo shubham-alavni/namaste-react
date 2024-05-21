@@ -1,9 +1,10 @@
 import RestaurantCard, { withExpressDelivery } from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST_API } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -31,6 +32,7 @@ const Body = () => {
   }, []);
 
   const onlineStatus = useOnlineStatus();
+  const { setUserName, default_logged_in_user } = useContext(UserContext);
 
   if (!onlineStatus) {
     return (
@@ -81,6 +83,17 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+        <div className="filter-btn m-4 p-4 flex items-center">
+          <input
+            className="p-2 border-2 border-gray-300 bg-white h-10 rounded-lg text-sm focus:outline-none"
+            placeholder="Update UserContext"
+            type="text"
+            value={default_logged_in_user}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
         </div>
       </div>
       <div className="restaurant-container flex flex-wrap">
