@@ -40,3 +40,11 @@
 - **Consumer**: This is a component that allows you to consume the value of a context.
 - **useContext** vs **Consumer**: **useContext** is a hook that allows you to access the value of a context directly, while **Consumer** is a component that allows you to consume the value of a context using a render prop.
 - Nested Contexts: You can nest contexts to provide different values to different parts of the component tree. - **IMPORTANT**
+
+# Episode 11: Let's build Our Store
+
+- **Redux** is a not mandatory library for React
+- **Redux** and **React** are two separate libraries
+- Use **Redux** wisely, don't use it for everything
+- **Redux** alternatives: **Zustand**
+- **Redux Toolkit**: A set of tools and best practices for building Redux applications.
