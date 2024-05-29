@@ -48,3 +48,16 @@
 - Use **Redux** wisely, don't use it for everything
 - **Redux** alternatives: **Zustand**
 - **Redux Toolkit**: A set of tools and best practices for building Redux applications.
+
+# What is difference between below 3 statements?
+- onClick={handleClick}
+- onClick={handleClick()}
+- onClick={() => handleClick()}
+
+# Redux Toolkit
+- install redux-toolkit and react-redux
+- Build a store
+- Connect the store to the app
+- Create a slice (cartSlice)
+- dispatch actions
+- Selector
