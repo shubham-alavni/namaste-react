@@ -49,15 +49,23 @@
 - **Redux** alternatives: **Zustand**
 - **Redux Toolkit**: A set of tools and best practices for building Redux applications.
 
-# What is difference between below 3 statements?
+### What is difference between below 3 statements?
 - onClick={handleClick}
 - onClick={handleClick()}
 - onClick={() => handleClick()}
 
-# Redux Toolkit
+### Redux Toolkit
 - install redux-toolkit and react-redux
 - Build a store
 - Connect the store to the app
 - Create a slice (cartSlice)
 - dispatch actions
 - Selector
+
+### **IMPORTANT** interview question
+- Why we need to subscribe to right portion of the store in redux?
+- // const cartItems = useSelector((store) => store.cart.items);
+    vs.
+  // const store = useSelector((store) => store);
+  // const cartItems = store.cart.items;
+- **Answer**: If you subscribe to the whole store, your component will re-render whenever any part of the store changes. This can be inefficient and can lead to unnecessary re-renders. By subscribing to the right portion of the store, you can ensure that your component only re-renders when the relevant part of the store changes.
