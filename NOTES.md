@@ -69,3 +69,25 @@
   // const store = useSelector((store) => store);
   // const cartItems = store.cart.items;
 - **Answer**: If you subscribe to the whole store, your component will re-render whenever any part of the store changes. This can be inefficient and can lead to unnecessary re-renders. By subscribing to the right portion of the store, you can ensure that your component only re-renders when the relevant part of the store changes.
+
+### difference between Redux reducer and reducers function
+- Whenever you writing a `store` in Redux, one big `reducer` for the whole store. and that reducer is a combination of multiple `reducers`
+- When we are writing a Slice, we create multple `reducers` (functions) and then combine them into a single reducer using `createSlice` function.
+- `reducer` is combination of multiple `reducers` functions.
+
+### In Vanilla Redux, Why dont mutate the state? and in Redux Toolkit, why we mutate the state?
+- In Vanilla Redux, you should not mutate the state directly because Redux uses shallow equality checks to determine if the state has changed. If you mutate the state directly, Redux will not be able to detect the changes and your components will not re-render. example:
+- ```js
+  const newState = [...state];
+  newState.push(action.payload);
+  return newState;
+  ```
+- In Redux Toolkit, you can mutate the state directly because Redux Toolkit uses Immer under the hood to handle state mutations. Immer creates a copy of the state and applies the mutations to the copy, leaving the original state unchanged. This allows you to write code that looks like you are mutating the state directly, but in reality, you are working with a copy of the state. example:
+- ```js
+  state.push(action.payload);
+  ```
+- But, behind the scenes, Redux Toolkit is creating a copy of the state and applying the mutation to the copy.
+- Immer is a library that allows you to work with immutable data structures in a more convenient way. Finds the difference between the old state and the new state and only updates the parts of the state that have changed.
+- **IMPORTANT** Whatever you return from a reducer function is the new state of the store.
+
+### Read more about RTK Query
